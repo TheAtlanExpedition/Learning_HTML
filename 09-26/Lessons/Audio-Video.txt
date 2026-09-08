@@ -69,3 +69,34 @@ Third party video(Youtube)
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen>
     </iframe>
+
+
+Optimizing a video file (https://handbrake.fr/)
+
+If your embedded video takes forever to load, it is almost always caused by missing web optimization, unoptimized metadata placement, or large file sizes.
+When a video isn't structured for streaming, browsers are forced to download the entire file into memory before playing the very first second.
+## Why It's Loading Slowly (And How to Fix It)
+
+* 
+* The "Fast-Start" Atom is at the End (Most Common): Digital videos contain metadata called the "moov atom." This is the index of the video. If you recorded it on a phone or camera, this index is usually placed at the very end of the file. A browser cannot start playback until it reads this index. You must move the metadata to the front of the file (called "Fast Start" or "Web Optimized").
+* The File Size is Too Heavy: GitHub is a code repository, not a video CDN. If your file is over 10–15 MB, it will choke on normal connections. Short clips should ideally be compressed under 5 MB.
+* High Bitrate: If the bitrate is higher than necessary for web viewing, it demands too much bandwidth from GitHub's servers.
+* 
+
+------------------------------
+## Step-by-Step Optimization Guide
+The fastest, free way to fix this is by using a popular open-source software tool called [HandBrake](https://handbrake.fr/).
+## 1. Compress and Web-Optimize via HandBrake
+
+   1. Open your video file inside HandBrake.
+   2. Under the Summary tab, make sure the format is set to MP4.
+   3. Crucial Step: Check the box next to "Web Optimized" (this moves the metadata atom to the very front of the file).
+   4. Go to the Video tab and ensure the Video Codec is set to H.264.
+   5. Lower the quality slightly to drop the file size. For standard web clips or bug reports, set the Constant Quality (RF) slider between 22 and 24.
+   6. Click Start Encode at the top.
+
+## 2. Re-upload to GitHub
+Take your newly compressed, web-optimized file and drop it back into a GitHub issue comment box to generate a brand-new asset URL. It should now stream almost instantly.
+------------------------------
+
+
