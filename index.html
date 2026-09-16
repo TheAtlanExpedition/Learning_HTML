@@ -127,6 +127,26 @@
         align-items: center;
         justify-content: center;
       }
+      .map-container {
+        width:100%;
+        max-width: 400px;
+        height:300px;
+        margin: 0 auto;
+        border: 2px solid black;
+        box-sizing: border-box;
+      }
+        .map-container iframe {
+          display: block;
+          width: 100%;
+          height: 100%;
+          border:0;
+        }
+          @media (max-width:300px) {
+            .map-container {
+              height: 400px;
+            }
+          }
+
 /* BODY - ABOUT */
 #about {
   scroll-margin-top:200px;
@@ -159,7 +179,7 @@
       <div class="header-container">
         <h1>Differences in A.i<br />Image Generations</h1>
         <div class="brand-container">
-          <h1>ICON</h1>
+          <a href="https://theatlanexpedition.github.io/Learning_HTML/#home"><h1>ICON</h1></a>
         </div>
       </div>
       <!-- Menu Bar -->
@@ -233,9 +253,23 @@
     <h2>About</h2>
     <p>What?</p>
   </div>
-  <div class="info-paragraph">
-  </div>
-</section>
+    <div class="info-paragraph">
+      <p>Here's a map of Bendigo</p>
+      <div class="map-container">
+    <iframe
+      src="https://www.openstreetmap.org/export/embed.html?bbox=144.03282165527347%2C-36.873029362792956%2C144.53235626220706%2C-36.6378455719693&layer=mapnik"
+      title="Map of Bendigo, Victoria, Australia">
+    </iframe>
+      <p>
+        <small>
+        <a href="https://www.openstreetmap.org/#map=12/-36.7555/144.2826">
+        View Larger Map
+        </a>
+      </p>
+        </small>
+      </div>
+    </div>
+  </section>
 </main>
 <script>
   function showPage() {
