@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice Page</title>
+<!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
+    <style>
+    /* HEADER */
+      body {
+        margin: 0;
+        overflow-x: hidden;
+        width: 100%;
+      }
+      .header-wrapper {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        width: 100%;
+      }
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        min-height: 80px;
+        background-color: #e0e0e0;
+        border-bottom: 20px solid #000000;
+        box-sizing: border-box;
+        padding: 0 20px 8px;
+        text-decoration: underline;
+        font-weight: 500;
+      }
+      .header-container h1 {
+        font-family: "Black Ops One";
+        font-size: clamp(1.2rem, 4vw, 2.5rem);
+        overflow-wrap: break-word;
+        margin: 0;
+      }
+      .brand-container {
+        display: flex;
+        align-items: center;
+        padding-right: 20px;
+        transform: translateY(4px);
+      }
+      .menu-container {
+        position: absolute;
+        right:0;
+        bottom: 0;
+        left: 0px;
+        z-index: 2;
+        display: flex;
+        gap: 20px;
+        width: calc(100% - 20px);
+        margin-left: 20px;
+        box-sizing: border-box;
+        font-weight: 500;
+        color: #ffffff;
+        line-height: 19px;
+      }
+      .menu-container a {
+        font-family: "Black Ops One";
+        color: inherit;
+        text-decoration: none;
+      }
+/* PAGES */
+.page {
+  display: none;
+  min-height: 100vh;
+  padding: 30px 20px;
+  box-sizing: border-box;
+}
+
+.page.active {
+  display: block;
+}
+/* BODY - HOME */
+#home {
+  scroll-margin-top:200px;
+}
+/* BODY - IMAGES */
+#images {
+  scroll-margin-top:200px;
+}
+/* BODU - ABOUT */
+#about {
+  scroll-margin-top:200px;
+ }
+      .gallery-container {
+        font-family: "Black Ops One";
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        margin: 20px auto;
+        text-align: center;
+        max-width: 900px;
+        padding: 0 15px;
+      }
+      .gallery-container figure {
+        flex: 1;
+        min-width: 200px;
+        max-width: 960px;
+        margin: 0;
+        text-align: center;
+      }
+      .gallery-container img {
+        width: 100%;
+        height: auto;
+        max-width: 480px;
+      }
+      .gallery-operator {
+        font-family: "Black Ops One";
+        font-size: 100px;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+/* BODY - ABOUT */
+#about {
+  scroll-margin-top:200px;
+}
+/* BODY - GENERAL */
+      @media (min-width: 768px) {
+        .gallery-container {
+          flex-direction: row;
+          justify-content: center;
+        }
+      }
+      .intro-text {
+        text-decoration: underline;
+        display: block;
+        text-align: center;
+        font-family: "Black Ops One";
+        margin: 0 10px 0px;
+      }
+      .info-paragraph {
+        display: block;
+        text-align: center;
+        font-family: "Black Ops One";
+        margin: 0 10px 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER CONTENT -->
+    <div class="header-wrapper">
+      <div class="header-container">
+        <h1>Differences in A.i<br />Image Generations</h1>
+        <div class="brand-container">
+          <h1>ICON</h1>
+        </div>
+      </div>
+      <!-- Menu Bar -->
+      <nav class="menu-container">
+        <a href="#home">Home</a>
+        <a href="#images">Images</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+<!-- BODY CONTENT -->
+<!-- Home -->
+<main>
+<section id="home" class="page">
+  <div class="intro-text">
+    <h2>Home</h2>
+    <p>Welcome</p>
+  </div>
+  <div class="info-paragraph">
+  </div>
+</section>
+<!-- Images -->
+<section id="images" class="page">
+    <div class="intro-text">
+      <h2>Images of Curiosity</h2>
+      <h3>Picking 2 random images and asking a.i to combine them.</h3>
+      <h1>Nano Banana</h1>
+    </div>
+    <div class="gallery-container">
+      <figure>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlw4Xp44bTv0ALCgfK7nlVz84CNYcnh2OCcE3f9nkeBaGkQw-YsBuV2AU3&amp;s=10"
+          alt="A pink circle over a valley"
+          width="480"
+          height="280"
+        />
+        <figcaption>A pink circle over a valley</figcaption>
+      </figure>
+      <span class="gallery-operator">+</span>
+      <figure>
+        <img
+          src="https://thumbs.dreamstime.com/b/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.jpg"
+          alt="a very green forest staircase"
+          width="480"
+          height="280"
+        />
+        <figcaption>A very green forest</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-container">
+      <figure>
+        <span class="gallery-operator">=</span>
+        <img
+          src="https://raw.githubusercontent.com/TheAtlanExpedition/CB500X/refs/heads/main/Images/image_3f24849a.jpg"
+          alt="a combination of the two"
+          width="480"
+          height="280"
+        />
+        <figcaption>
+          A combination of the two images done by Nano Banana a.i.
+        </figcaption>
+      </figure>
+    </div>
+    <div class="info-paragraph">
+      I just learned about svg images, they are made using code which is pretty
+      cool, it also means they are scalable without loss.
+    </div>
+</section>
+<!-- About -->
+<section id="about" class="page">
+  <div class="intro-text">
+    <h2>About</h2>
+    <p>What?</p>
+  </div>
+  <div class="info-paragraph">
+  </div>
+</section>
+</main>
+<script>
+  function showPage() {
+    const pageName = window.location.hash.substring(1) || "home";
+    document.querySelectorAll(".page").forEach((page) => {
+      page.classList.remove("active");
+    });
+    const selectedPage = document.getElementById(pageName);
+    if (selectedPage) {
+      selectedPage.classList.add("active");
+    } else {
+      document.getElementById("home").classList.add("active");
+    }
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener("hashchange", showPage);
+  showPage();    
+</script>
+</body>
+</html>
