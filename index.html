@@ -356,19 +356,19 @@
 <footer class="info-paragraph" style="margin-top:250px">
   <p>"COPY RIGHT INFO"</p>
 </footer>
-    
+<!-- PREVIEW SCRIPT --> 
 <div id="image-modal" class="image-modal">
   <button id="modal-close" class="modal-close" type="button" aria-label="Close image preview">
     &times;</button>
-  <img id="modal-image" scr="" alt="">
+  <img id="modal-image" src="" alt="">
 </div>
 <script>
   const galleryImages = document.querySelectorAll(".gallery-image");
-  const imageModal = document.querySelector("#modal-modal");
+  const imageModal = document.querySelector("#image-modal");
   const modalImage = document.querySelector("#modal-image");
   const modalClose = document.querySelector("#modal-close");
   
-galleyImages.forEach((image) => {
+galleryImages.forEach((image) => {
   image.addEventListener("click", () => {
     modalImage.src = image.src;
     modalImage.alt = image.alt;
@@ -390,6 +390,7 @@ galleyImages.forEach((image) => {
     }
   })
 </script>
+<!-- PAGES SCRIPT -->
 <script>
   function showPage() {
     const pageName = window.location.hash.substring(1) || "home";
