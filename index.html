@@ -120,7 +120,9 @@
       .gallery-container img {
         width: 480px;
         height: 280px;
+        object-fit: cover;
         border: 5px solid black;
+        cursor: pointer;
       }
       .gallery-operator {
         font-family: "Black Ops One";
@@ -130,6 +132,45 @@
         align-items: center;
         justify-content: center;
       }
+/* IMAGES PREVIEW */
+      .image-model {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: rgba(0,0,0,0.85);
+      }
+      .image-modal.active {
+        display: flex;
+      }
+      .image-modal img {
+        display: block;
+        width: auto;
+        height: auto;
+        max-width: 90vw;
+        max-height: 90vh;
+        object-fit: contain;
+        border: 5px solid white;
+        box-sizing: border-box;
+      }
+      .model-close {
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        z-index: 100;
+        padding: 0;
+        border: none;
+        background: transparent;
+        color: white;
+        font-size: 42px;
+        line-height: 1;
+        cursor: pointer;
+      }
+ /* MAPS */
       .map-container {
         width:100%;
         max-width: 400px;
@@ -160,11 +201,12 @@
         .gallery-container {
           flex-direction: row;
           justify-content: center;
-        }}
+        }
+      }
       /* MOBILE */
       @media (max-width:768px) {
         .gallery-container{
-          widht: 100%;
+          width: 100%;
           max-width:480px;
         }
         .gallery-container figure{
@@ -175,6 +217,7 @@
         .gallery-container img{
           width: 100%;
           height:auto;
+          object-fit: contain;
           box-sizing: border-box;
         }
         .gallery-operator {
@@ -193,7 +236,7 @@
         text-align: center;
         font-family: "Black Ops One";
         margin: 0 10px 0px;
-      }}
+      }
     </style>
   </head>
   <body>
@@ -232,6 +275,7 @@
 <div class="gallery-container">
   <figure>
     <img
+      class="gallery-image"
       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlw4Xp44bTv0ALCgfK7nlVz84CNYcnh2OCcE3f9nkeBaGkQw-YsBuV2AU3&amp;s=10"
       alt="A pink circle over a valley"
       width="480"
@@ -241,6 +285,7 @@
 <span class="gallery-operator">+</span>
   <figure>
     <img
+      class="gallery-image"
       src="https://thumbs.dreamstime.com/b/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.jpg"
       alt="a very green forest staircase"
       width="480"
@@ -256,6 +301,7 @@
       <p>Google A.i Chat</p>
     </div>
     <img
+      class="gallery-image"
       src="https://raw.githubusercontent.com/TheAtlanExpedition/CB500X/refs/heads/main/Images/image_3f24849a.jpg"
       alt="A combination of the two images done by Nano Banana a.i."
       width="480"
@@ -268,6 +314,7 @@
       <p>DuckDuckGo A.i Chat</p>
     </div>
     <img
+      class="gallery-image"
       src="https://raw.githubusercontent.com/TheAtlanExpedition/CB500X/refs/heads/main/Images/Duck-ai-image-2026-09-17-05-38.jpeg"
       alt="A combination of the two images done by ChatGPT-5.6 Luna a.i"
       width="480"
@@ -309,6 +356,40 @@
 <footer class="info-paragraph" style="margin-top:250px">
   <p>"COPY RIGHT INFO"</p>
 </footer>
+    
+<div id="image-modal" class="image-modal">
+  <button class="modal-close" type="button" aria-label="Close image preview">
+    &times;</button>
+  <img is="modal-image" scr="" alt="">
+</div>
+<script>
+  const galleryImages = document.querySelectorAll("gallery-image");
+  const imageModal = document.querySelector("#modal-modal");
+  const modalImage = document.querySelector(".modal-image");
+  const modalClose = document.querySelector("modal-close");
+  
+galleyImages.forEach((image) => {
+  image.addEventListener("click", () => {
+    modalImage.src = image.src;
+    modalImage.alt = image.alt;
+    
+    imageModal.classList.add("active");
+    document.body.style.overflow = "hidden";                    
+  })
+})
+  
+  function closeModal() {
+    imageModal.classList.remove("active");
+    modalImage.src = "";
+    document.body.style.overflow = "";
+  }
+  
+  modalClose.addEventListener("click", (event) => {
+    if (event.target === imageModal) {
+      closeModal();
+    }
+  })
+</script>
 <script>
   function showPage() {
     const pageName = window.location.hash.substring(1) || "home";
