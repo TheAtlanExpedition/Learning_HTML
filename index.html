@@ -384,11 +384,12 @@ galleryImages.forEach((image) => {
     document.body.style.overflow = "";
   }
   
-  modalClose.addEventListener("click", (event) => {
+  modalClose.addEventListener("click", closeModal);
+  imageModal.addEventListener("click, (event) => {
     if (event.target === imageModal) {
-      closeModal();
-    }
-  })
+    closeModal();
+  }
+  });
 </script>
 <!-- PAGES SCRIPT -->
 <script>
