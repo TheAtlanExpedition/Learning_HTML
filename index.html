@@ -110,7 +110,6 @@
         max-width: 1300px;
         padding: 0 15px;
         align-self: center;
-        height: 280px;
       }
       .gallery-container figure {
         flex: 1;
@@ -118,6 +117,9 @@
         max-width: 900px;
         margin: 0;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
       .gallery-container img {
         width: 480px;
@@ -125,6 +127,7 @@
         object-fit: cover;
         border: 5px solid black;
         cursor: pointer;
+        display: block;
       }
       .gallery-operator {
         font-family: "Black Ops One";
@@ -431,8 +434,8 @@
     <img
          class="gallery-image"
          src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Image_2.1_parent.jpg"
-         alt="A pretty woman in foilage">
-    <figcaption>A pretty woman in foilage</figcaption>
+         alt="A woman in foilage">
+    <figcaption>A woman in foilage</figcaption>
     </figure>
     <span class="gallery-operator">+</span>
     <figure>
