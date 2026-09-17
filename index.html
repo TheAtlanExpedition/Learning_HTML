@@ -391,8 +391,13 @@ galleryImages.forEach((image) => {
   imageModal.addEventListener("click", (event) => {
     if (event.target === imageModal) {
     closeModal();
-  }
+    }
   });
+  modalImage.addEventListener("click", (event) => {
+    if (event.target === modalImage) {
+      closeModal();
+    }
+  })
 </script>
 <!-- PAGES SCRIPT -->
 <script>
