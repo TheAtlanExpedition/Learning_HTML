@@ -133,7 +133,7 @@
         justify-content: center;
       }
 /* IMAGES PREVIEW */
-      .image-model {
+      .image-modal {
         display: none;
         position: fixed;
         inset: 0;
@@ -142,7 +142,7 @@
         justify-content: center;
         padding: 20px;
         box-sizing: border-box;
-        background-color: rgba(0,0,0,0.85);
+        background-color: rgba(0, 0, 0, 0.85);
       }
       .image-modal.active {
         display: flex;
@@ -157,7 +157,7 @@
         border: 5px solid white;
         box-sizing: border-box;
       }
-      .model-close {
+      .modal-close {
         position: absolute;
         top: 15px;
         right: 25px;
@@ -358,15 +358,15 @@
 </footer>
     
 <div id="image-modal" class="image-modal">
-  <button class="modal-close" type="button" aria-label="Close image preview">
+  <button id="modal-close" class="modal-close" type="button" aria-label="Close image preview">
     &times;</button>
-  <img is="modal-image" scr="" alt="">
+  <img id="modal-image" scr="" alt="">
 </div>
 <script>
-  const galleryImages = document.querySelectorAll("gallery-image");
+  const galleryImages = document.querySelectorAll(".gallery-image");
   const imageModal = document.querySelector("#modal-modal");
-  const modalImage = document.querySelector(".modal-image");
-  const modalClose = document.querySelector("modal-close");
+  const modalImage = document.querySelector("#modal-image");
+  const modalClose = document.querySelector("#modal-close");
   
 galleyImages.forEach((image) => {
   image.addEventListener("click", () => {
