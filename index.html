@@ -137,6 +137,25 @@
         align-items: center;
         justify-content: center;
       }
+      .gallery-container.bottom-results {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+        flex-wrap: wrap;
+        height: auto;
+      }
+      .result-column {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 200px;
+        max-width: 480px;
+      }
+      .result-column .intro-text {
+        margin-bottom: 8px;
+      }
 
  /* IMAGE CAROUSEL */
       .carousel {
@@ -170,7 +189,7 @@
         box-sizing: border-box;
       }
       .carousel-arrow {
-        position: sticky;
+        position: absolute;
         grid-row: 1;
         top: 50%;
         flex-shrink: 0;
@@ -184,18 +203,10 @@
         cursor: pointer;
       }
       .carousel-arrow.previous {
-        grid-column: 1;
-        grid-row: 1;
-        position: sticky;
-        top: 50%;
-        transform: translateY(-50%);
+        left: 0;
       }
       .carousel-arrow.next {
-        grid-column: 3;
-        grid-row: 1;
-        position: sticky;
-        top: 50%;
-        transform: translateY(-50%);
+        right: 0;
       }
       .carousel-arrow:hover {
         background-color: #444;
@@ -396,13 +407,15 @@
         <figcaption>A very green forest</figcaption>
   </figure>  
 </div>
+<!-- BOTTOM HALF -->
 <span class="gallery-operator">=</span>
-<div class="gallery-container">
-  <figure>
+<div class="gallery-container bottom-results">
+  <div class="result-column">
     <div class="intro-text">
       <h2>Nano Banana</h2>
       <p>Google A.i Chat</p>
     </div>
+    <figure>
     <img
       class="gallery-image"
       src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Nano_Banana_1.jpg"
@@ -411,11 +424,13 @@
       height="280"/>
         <figcaption>A combination of the two images done by Nano Banana A.i.</figcaption>
   </figure>
-  <figure>
+</div>
+<div class="result-column">
     <div class="intro-text">
       <h2>ChatGPT-5.6 Luna</h2>
       <p>DuckDuckGo A.i Chat</p>
     </div>
+    <figure>
     <img
       class="gallery-image"
       src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Duck-A.i-ChatGPT-5.6Luna_1.jpg"
@@ -426,7 +441,7 @@
   </figure> 
 </div>
 </div>
-
+</div>
 <!-- SLIDE 2 -->
 <div class="carousel-slide">
   <div class="gallery-container">
@@ -446,24 +461,28 @@
       <figcaption>A ginger cat</figcaption>
     </figure>
   </div>
+<!-- BOTTOM HALF -->
     <span class="gallery-operator">=</span>
-    <div class="gallery-container">
-      <figure>
-    <div class="intro-text">
-      <h2>Nano Banana</h2>
-      <p>Google A.i Chat</p>
-    </div>
+    <div class="gallery-container bottom-results">
+      <div class="result-column">
+        <div class="intro-text">
+          <h2>Nano Banana</h2>
+          <p>Google A.i Chat</p>
+        </div>
+        <figure>
         <img
              class="gallery-image"
              src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Nano_Banana_2.jpg"
              alt="A combination of the two images done by Nano Banana A.i. (09/26)">
         <figcaption>A combination of the two images done by Nano Banana A.i.</figcaption>
       </figure>
-      <figure>
+    </div>
+    <div class="result-column">
     <div class="intro-text">
       <h2>ChatGPT-5.6 Luna</h2>
       <p>DuckDuckGo A.i Chat</p>
     </div>
+    <figure>
         <img
              class="gallery-image"
              src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Duck-A.i-ChatGPT-5.6Luna_2.jpg"
