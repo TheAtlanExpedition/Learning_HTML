@@ -85,12 +85,11 @@
       }
       .footer-container {
         width: 100%;
-        min-Height: 80px;
+        min-height: 80px;
         background-color: #e0e0e0;
         font-family: "Black Ops One";
         text-align: center;
         justify-content: space-between;
-        flex: 1;
       }
 /* PAGES */
 .page {
@@ -113,6 +112,10 @@
 #about {
  }
 /* GALLERY */
+      .gallery-image {
+        user-select: none;
+        -webkit-user-drag: none;
+      }
       .gallery-container {
         font-family: "Black Ops One";
         display: flex;
@@ -158,21 +161,41 @@
         justify-content: center;
         color: #00cc00;
       }
-      .gallery-container.bottom-results {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 20px;
-        flex-wrap: wrap;
-        height: auto;
+      .gallery-operator.bottom-results > .gallery-operator {
+        diplay: none;
       }
+      .gallery-container.bottom-results {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+        gap: 20px 20px;
+        align-items: start;
+        height: auto;
+        width: 100%;
+        max-width: 1000px;
+        margin: 20px auto;
+        box-sizing: border-box;
+      }
+      .gallery-container.bottom-results .result-column {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-width: 0;
+        max-width: none;
+      }
+        .gallery-container img,
+        .result-column img {
+          width: 100%;
+          height: auto;
+          aspect-ratio: 480 / 280;
+          object-fit: cover;
+          box-sizing: border-box;
+        }
       .result-column {
         display: flex;
         flex-direction: column;
-        flex: 1;
-        min-width: 200px;
-        max-width: 480px;
+        width: 100%;
+        min-width: 0;
+        max-width: auto;
       }
       .result-column .intro-text {
         margin-bottom: 8px;
@@ -195,9 +218,15 @@
         min-width: 0;
         flex: 1;
         width: 100%;
+        height: auto;
         overflow: hidden;
         background-color: #000000;
         border-radius: 12px;
+        cursor: default;
+        user-select: none;
+      }
+      .carousel-window:action {
+        cursor: grabbing;
       }
       .carousel-track {
         display: flex;
@@ -209,7 +238,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         box-sizing: border-box;
       }
       .carousel-arrow {
@@ -345,14 +374,21 @@
           max-width: 480px;
           box-sizing: border-box;
         }
-        .gallery-container img{
+        .gallery-container img,
+        .result-column img {
           width: 100%;
+          max-width: 480px;
           height:auto;
+          aspect-ratio: 480 / 280;
           object-fit: cover;
+          object-position: center;
           box-sizing: border-box;
         }
         .gallery-operator {
           font-size:60px;
+        }
+        .desktop-only {
+          display: none;
         }
       }
       .intro-text {
@@ -416,9 +452,7 @@
     <img
       class="gallery-image"
       src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Image_1.2_parent.jpg"
-      alt="A pink circle over a valley"
-      width="480"
-      height="280"/>
+      alt="A pink circle over a valley"/>
         <figcaption>A pink circle over a valley</figcaption>
   </figure>
 <span class="gallery-operator">+</span>
@@ -426,9 +460,7 @@
     <img
       class="gallery-image"
       src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Image_1.1_parent.jpg"
-      alt="a very green forest staircase"
-      width="480"
-      height="280"/>
+      alt="a very green forest staircase"/>
         <figcaption>A very green forest</figcaption>
   </figure>  
 </div>
@@ -444,13 +476,25 @@
     <img
       class="gallery-image"
       src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Nano_Banana_1.jpg"
-      alt="A combination of the two images done by Nano Banana A.i. (09/26)"
-      width="480"
-      height="280"/>
+      alt="A combination of the two images done by Nano Banana A.i. (09/26)"/>
         <figcaption>A combination of the two images done by Nano Banana A.i.</figcaption>
   </figure>
 </div>
-<span class="gallery-operator" style="color:#000000">&#10014;</span>
+<span class="gallery-operator desktop-only" style="color:#000000">&#10014;</span>
+<div class="result-column">
+  <div class="intro-text">
+    <h2>Grok4.5</h2>
+    <p>Grok A.i Chat</p>
+  </div>
+  <figure>
+  <img
+       class="gallery-image"
+       src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Grok4.5_1.jpg"
+       alt="A combination of the two images done by Grok4.5 A.i. (09/26)">
+  <figcaption>A combination of the two images done by Grok4.5 A.i.</figcaption>
+</figure>
+</div>
+<span class="gallery-operator desktop-only" style="color:#000000">&#10014;</span>
 <div class="result-column">
     <div class="intro-text">
       <h2>ChatGPT-5.6 Luna</h2>
@@ -460,9 +504,7 @@
     <img
       class="gallery-image"
       src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Duck-A.i-ChatGPT-5.6Luna_1.jpg"
-      alt="A combination of the two images done by ChatGPT-5.6 Luna A.i. (09/26)"
-      width="480"
-      height="280"/>
+      alt="A combination of the two images done by ChatGPT-5.6 Luna A.i. (09/26)"/>
         <figcaption>A combination of the two images done by ChatGPT-5.6 Luna A.i.</figcaption>
   </figure> 
 </div>
@@ -503,7 +545,21 @@
         <figcaption>A combination of the two images done by Nano Banana A.i.</figcaption>
       </figure>
     </div>
-  <span class="gallery-operator" style="color:#000000">&#10014;</span>
+    <span class="gallery-operator desktop-only" style="color:#000000">&#10014;</span>
+    <div class="result-column">
+      <div class="intro-text">
+        <h2>Grok4.5</h2>
+        <p>Grok A.i Chat</p>
+      </div>
+      <figure>
+      <img
+           class="gallery-image"
+           src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Grok4.5_2.jpg"
+           alt="A combination of the two images done by Grok4.5 A.i. (09/26)">
+      <figcaption>A combination of the two images done by Grok4.5 A.i.</figcaption>
+    </figure>
+  </div>
+  <span class="gallery-operator desktop-only" style="color:#000000">&#10014;</span>
     <div class="result-column">
     <div class="intro-text">
       <h2>ChatGPT-5.6 Luna</h2>
@@ -518,13 +574,70 @@
       </figure>
     </div>
   </div>
-     </div>
-   </div>
+</div>
+
+<!-- Slide 3 -->
+<div class="carousel-slide">
+  <div class="gallery-container">
+    <figure>
+      <img
+        class="gallery-image"
+        src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Image_3.2_parent.jpg"
+        alt="A pink circle over a valley"/>
+          <figcaption>A pink circle over a valley</figcaption>
+    </figure>
+  <span class="gallery-operator">+</span>
+    <figure>
+      <img
+        class="gallery-image"
+        src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Image_3.1_parent.jpg"
+        alt="a very green forest staircase"/>
+          <figcaption>A very green forest</figcaption>
+    </figure>  
+  </div>
+  <!-- BOTTOM HALF -->
+  <span class="gallery-operator">=</span>
+  <div class="gallery-container bottom-results">
+    <div class="result-column">
+      <div class="intro-text">
+        <h2>Nano Banana</h2>
+        <p>Google A.i Chat</p>
+      </div>
+      <figure>
+      <img
+        class="gallery-image"
+        src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Nano_Banana_3.jpg"
+        alt="A combination of the two images done by Nano Banana A.i. (09/26)"
+        width="480"
+        height="280"/>
+          <figcaption>A combination of the two images done by Nano Banana A.i.</figcaption>
+    </figure>
+  </div>
+  <span class="gallery-operator desktop-only" style="color:#000000">&#10014;</span>
+  <div class="result-column">
+      <div class="intro-text">
+        <h2>ChatGPT-5.6 Luna</h2>
+        <p>DuckDuckGo A.i Chat</p>
+      </div>
+      <figure>
+      <img
+        class="gallery-image"
+        src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Duck-A.i-ChatGPT-5.6Luna_3.jpg"
+        alt="A combination of the two images done by ChatGPT-5.6 Luna A.i. (09/26)"
+        width="480"
+        height="280"/>
+          <figcaption>A combination of the two images done by ChatGPT-5.6 Luna A.i.</figcaption>
+    </figure> 
+  </div>
+  </div>
+  </div>
    <button class="carousel-arrow next" type="button" aria-label="Next Image">
      &#10095;</button>
 </div>      
 </section>
-<!-- About -->
+
+
+<!-- ABOUT PAGE -->
 <section id="about" class="page">
   <div class="intro-text">
     <h2>About</h2>
@@ -571,14 +684,39 @@
   const modalClose = document.querySelector("#modal-close");
   
 galleryImages.forEach((image) => {
+  let startX;
+  let startY;
+  let moved = false;
+
+  image.addEventListener("pointerdown", (event) => {
+    startX = event.clientX;
+    startY = event.clientY;
+    moved = false;
+  });
+
+  image.addEventListener("pointermove", (event) => {
+    if (
+    Math.abs(event.clientX - startX) > 10 ||
+    Math.abs(event.clientY - startY) > 10
+  ) {
+    moved = true;
+  }
+  });
+  
   image.addEventListener("click", () => {
+    if (moved) {
+      moved = false;
+      return;
+    }
+
     modalImage.src = image.src;
     modalImage.alt = image.alt;
     
     imageModal.classList.add("active");
-    document.body.style.overflow = "hidden";                    
-  })
-})
+    document.body.style.overflow = "hidden"; 
+    moved = false;                   
+  });
+});
   
   function closeModal() {
     imageModal.classList.remove("active");
@@ -597,7 +735,7 @@ galleryImages.forEach((image) => {
 </script>
 <!-- CAROUSEL -->
 <script>
-/* MOBILE SLIDE ACTION */
+/* SLIDE ACTION */
 const carouselTrack = document.querySelector(".carousel-track");
 const carouselSlides = document.querySelectorAll(".carousel-slide");
 const previousButton = document.querySelector(".carousel-arrow.previous");
@@ -615,6 +753,10 @@ function goToSlide(index) {
   if (currentSlide < 0) currentSlide = carouselSlides.length - 1;
   if (currentSlide >= carouselSlides.length) currentSlide = 0;
   updateCarousel();
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 }
 // Arrow buttons
 nextButton.addEventListener("click", () => goToSlide(currentSlide + 1));
