@@ -300,6 +300,13 @@
         }
       }
 /* IMAGES PREVIEW */
+      .model-content {
+        position: relative;
+        display: inline-block;
+        overflow: visible;
+        max-width: 90vw;
+        max-height: 90vh;
+      }
       .image-modal {
         display: none;
         position: fixed;
@@ -315,6 +322,7 @@
         display: flex;
       }
       .image-modal img {
+        position: relative;
         display: block;
         width: auto;
         height: auto;
@@ -327,14 +335,15 @@
       }
       .modal-close {
         position: absolute;
-        top: 15px;
-        right: 25px;
-        z-index: 100;
+        top: 0px;
+        right: 0px;
+        transform: translate(-0%, 0%); /* Attempt to move X to top right corner of image */
+        z-index: 1001;
         padding: 0;
         border: none;
         background: transparent;
         color: crimson;
-        font-size: 42px;
+        font-size: 64px;
         line-height: 1;
         cursor: pointer;
       }
@@ -710,10 +719,12 @@
 </footer>
  
 <!-- PREVIEW SCRIPT --> 
+<div id="modal-content" class="modal-content" >
 <div id="image-modal" class="image-modal">
   <button id="modal-close" class="modal-close" type="button" aria-label="Close image preview">
     &times;</button>
   <img id="modal-image" src="" alt="">
+</div>
 </div>
 <script>
   const galleryImages = document.querySelectorAll(".gallery-image");
