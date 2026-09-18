@@ -24,6 +24,10 @@
         margin: 0;
         overflow-x: hidden;
         width: 100%;
+        height: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
       }
       .header-wrapper {
         position: sticky;
@@ -76,6 +80,18 @@
         color: inherit;
         text-decoration: none;
       }
+      .main {
+        flex:1
+      }
+      .footer-container {
+        width: 100%;
+        min-Height: 80px;
+        background-color: #e0e0e0;
+        font-family: "Black Ops One";
+        text-align: center;
+        justify-content: space-between;
+        flex: 1;
+      }
 /* PAGES */
 .page {
   display: none;
@@ -111,7 +127,8 @@
         padding: 0 15px;
         align-self: center;
       }
-      .gallery-container figure {
+      .gallery-container figure,
+      .result-column figcaption {
         flex: 1;
         min-width: 200px;
         max-width: 900px;
@@ -120,14 +137,17 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        color: #00cc00;
       }
-      .gallery-container img {
+      .gallery-container img,
+      .result-column img {
         width: 480px;
         height: 280px;
         object-fit: cover;
-        border: 5px solid black;
+        border: 5px solid #00cc00;
         cursor: pointer;
         display: block;
+        border-radius: 12px;
       }
       .gallery-operator {
         font-family: "Black Ops One";
@@ -136,6 +156,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        color: #00cc00;
       }
       .gallery-container.bottom-results {
         display: flex;
@@ -155,6 +176,7 @@
       }
       .result-column .intro-text {
         margin-bottom: 8px;
+        color: #00cc00;
       }
 
  /* IMAGE CAROUSEL */
@@ -174,6 +196,8 @@
         flex: 1;
         width: 100%;
         overflow: hidden;
+        background-color: #000000;
+        border-radius: 12px;
       }
       .carousel-track {
         display: flex;
@@ -191,15 +215,16 @@
       .carousel-arrow {
         position: absolute;
         grid-row: 1;
-        top: 50%;
+        top: 40%;
         flex-shrink: 0;
         z-index: 10;
         width: 45px;
-        height: 60px;
+        height: 120px;
         border: none;
-        background-color: #000;
-        color: #fff;
-        font-size: 32px;
+        background-color: #00cc00;
+        line-height: 1.2;
+        color: #000000;
+        font-size: 64px;
         cursor: pointer;
       }
       .carousel-arrow.previous {
@@ -363,7 +388,7 @@
     </div>
 <!-- BODY CONTENT -->
 <!-- Home -->
-<main>
+<main class="main">
 <section id="home" class="page">
   <div class="intro-text">
     <h2>Home</h2>
@@ -425,7 +450,7 @@
         <figcaption>A combination of the two images done by Nano Banana A.i.</figcaption>
   </figure>
 </div>
-  <span class="gallery-operator" style="color:white">&#10014;</span>
+<span class="gallery-operator" style="color:#000000">&#10014;</span>
 <div class="result-column">
     <div class="intro-text">
       <h2>ChatGPT-5.6 Luna</h2>
@@ -478,7 +503,7 @@
         <figcaption>A combination of the two images done by Nano Banana A.i.</figcaption>
       </figure>
     </div>
-  <span class="gallery-operator" style="color:white">&#10014;</span>
+  <span class="gallery-operator" style="color:#000000">&#10014;</span>
     <div class="result-column">
     <div class="intro-text">
       <h2>ChatGPT-5.6 Luna</h2>
@@ -529,7 +554,7 @@
   </div>
   </section>
 </main>
-<footer class="info-paragraph" style="margin-top:250px">
+<footer class="footer-container">
   <p>"COPY RIGHT INFO"</p>
 </footer>
  
