@@ -242,9 +242,9 @@
         box-sizing: border-box;
       }
       .carousel-arrow {
-        position: absolute;
+        position: fixed;
+        top: 50%;
         grid-row: 1;
-        top: 40%;
         flex-shrink: 0;
         z-index: 10;
         width: 45px;
@@ -262,9 +262,6 @@
       .carousel-arrow.next {
         right: 0;
       }
-      .carousel-arrow:hover {
-        background-color: #444;
-      }
       .carousel-slide .gallery-container {
         width: 100%;
         margin: 20px auto;
@@ -277,16 +274,28 @@
       }
  /* MODIBLE ARROWS */
       @media (max-width: 600px) {
+        .carousel {
+          grid-template-columns: 35px minmax(0, 1fr) 35px;
+          box-sizing: border-box;
+          padding: 0 4px;
+        }
+        .carousel-window {
+          width: 100%;
+        }
         .carousel-arrow {
-          width: 35px;
-          height: 50px;
-          font-size: 24px;
+          position: fixed;
+          top: 50dvh;
+          transform: translate3d(0, -50%, 0);
+          width: 50px;
+          height: 100px;
+          font-size: 48px;
+          line-height: 1.2;
         }
         .carousel-arrow.previous {
-          margin-right: 4px;
+          grid-column: 1;
         }
         .carousel-arrow.next {
-          margin-left: 4px;
+          grid-column: 3;
         }
       }
 /* IMAGES PREVIEW */
@@ -477,7 +486,7 @@
       class="gallery-image"
       src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Nano_Banana_1.jpg"
       alt="A combination of the two images done by Nano Banana A.i. (09/26)"/>
-        <figcaption>A combination of the two images done by Nano Banana A.i.</figcaption>
+        <figcaption></figcaption>
   </figure>
 </div>
 <span class="gallery-operator desktop-only" style="color:#000000">&#10014;</span>
@@ -491,7 +500,7 @@
        class="gallery-image"
        src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Grok4.5_1.jpg"
        alt="A combination of the two images done by Grok4.5 A.i. (09/26)">
-  <figcaption>A combination of the two images done by Grok4.5 A.i.</figcaption>
+  <figcaption></figcaption>
 </figure>
 </div>
 <span class="gallery-operator desktop-only" style="color:#000000">&#10014;</span>
@@ -505,7 +514,7 @@
       class="gallery-image"
       src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Duck-A.i-ChatGPT-5.6Luna_1.jpg"
       alt="A combination of the two images done by ChatGPT-5.6 Luna A.i. (09/26)"/>
-        <figcaption>A combination of the two images done by ChatGPT-5.6 Luna A.i.</figcaption>
+        <figcaption></figcaption>
   </figure> 
 </div>
 </div>
@@ -542,7 +551,7 @@
              class="gallery-image"
              src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Nano_Banana_2.jpg"
              alt="A combination of the two images done by Nano Banana A.i. (09/26)">
-        <figcaption>A combination of the two images done by Nano Banana A.i.</figcaption>
+        <figcaption></figcaption>
       </figure>
     </div>
     <span class="gallery-operator desktop-only" style="color:#000000">&#10014;</span>
@@ -556,7 +565,7 @@
            class="gallery-image"
            src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Grok4.5_2.jpg"
            alt="A combination of the two images done by Grok4.5 A.i. (09/26)">
-      <figcaption>A combination of the two images done by Grok4.5 A.i.</figcaption>
+      <figcaption></figcaption>
     </figure>
   </div>
   <span class="gallery-operator desktop-only" style="color:#000000">&#10014;</span>
@@ -570,7 +579,7 @@
              class="gallery-image"
              src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Duck-A.i-ChatGPT-5.6Luna_2.jpg"
              alt="A combination of the two images done by ChatGPT-5.6 Luna A.i. (09/26)">
-        <figcaption>A combination of the two images done by ChatGPT-5.6 Luna A.i.</figcaption>
+        <figcaption></figcaption>
       </figure>
     </div>
   </div>
@@ -607,10 +616,8 @@
       <img
         class="gallery-image"
         src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Nano_Banana_3.jpg"
-        alt="A combination of the two images done by Nano Banana A.i. (09/26)"
-        width="480"
-        height="280"/>
-          <figcaption>A combination of the two images done by Nano Banana A.i.</figcaption>
+        alt="A combination of the two images done by Nano Banana A.i. (09/26)"/>
+          <figcaption></figcaption>
     </figure>
   </div>
   <span class="gallery-operator desktop-only" style="color:#000000">&#10014;</span>
@@ -623,14 +630,14 @@
       <img
         class="gallery-image"
         src="https://raw.githubusercontent.com/TheAtlanExpedition/Learning_HTML/refs/heads/main/images/Duck-A.i-ChatGPT-5.6Luna_3.jpg"
-        alt="A combination of the two images done by ChatGPT-5.6 Luna A.i. (09/26)"
-        width="480"
-        height="280"/>
-          <figcaption>A combination of the two images done by ChatGPT-5.6 Luna A.i.</figcaption>
+        alt="A combination of the two images done by ChatGPT-5.6 Luna A.i. (09/26)"/>
+          <figcaption></figcaption>
     </figure> 
   </div>
   </div>
   </div>
+</div>
+</div>
    <button class="carousel-arrow next" type="button" aria-label="Next Image">
      &#10095;</button>
 </div>      
@@ -754,7 +761,7 @@ function goToSlide(index) {
   if (currentSlide >= carouselSlides.length) currentSlide = 0;
   updateCarousel();
   window.scrollTo({
-    top: 0,
+    top: 140,
     behavior: "smooth"
   });
 }
