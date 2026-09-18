@@ -572,31 +572,86 @@ galleryImages.forEach((image) => {
 </script>
 <!-- CAROUSEL -->
 <script>
-  const carouselTrack = document.querySelector(".carousel-track");
-  const carouselSlides = document.querySelectorAll(".carousel-slide");
-  const previousButton = document.querySelector(".carousel-arrow.previous");
-  const nextButton = document.querySelector(".carousel-arrow.next");
- 
-  let currentSlide = 0;
- 
-  function updateCarousel() {
-    carouselTrack.style.transform =
-      `translateX(-${currentSlide * 100}%)`;
-  }
-  nextButton.addEventListener("click", () => {
-    currentSlide++;
-    if (currentSlide >= carouselSlides.length) {
-      currentSlide = 0;
+/* MOBILE SLIDE ACTION */
+const carouselTrack = document.querySelector(".carousel-track");
+const carouselSlides = document.querySelectorAll(".carousel-slide");
+const previousButton = document.querySelector(".carousel-arrow.previous");
+const nextButton = document.querySelector(".carousel-arrow.next");
+
+let currentSlide = 0;
+let startX = 0;
+let isDragging = false;
+
+function updateCarousel() {
+  carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+}
+function goToSlide(index) {
+  currentSlide = index;
+  if (currentSlide < 0) currentSlide = carouselSlides.length - 1;
+  if (currentSlide >= carouselSlides.length) currentSlide = 0;
+  updateCarousel();
+}
+// Arrow buttons
+nextButton.addEventListener("click", () => goToSlide(currentSlide + 1));
+previousButton.addEventListener("click", () => goToSlide(currentSlide - 1));
+
+// Swipe / Drag support
+const carouselWindow = document.querySelector(".carousel-window");
+
+// Touch events  (mobile)
+carouselWindow.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+  isDragging = true;
+}, { passive: true });
+
+carouselWindow.addEventListener("touchmove", (e) => {
+  if (!isDragging) return;
+})
+
+carouselWindow.addEventListener("touchend", (e) => {
+  if (!isDragging) return;
+  isDragging = false;
+
+  const endX = e.changedTouches[0].clientX;
+  const diffX = startX - endX;
+  const threshold = 60;
+
+  if (Math.abs(diffX) > threshold) {
+    if (diffX > 0) {
+      //Swipe Left → Next Slide
+      goToSlide(currentSlide + 1);
+    } else {
+      //Swipe Right → Previous Slide
+      goToSlide(currentSlide - 1);
     }
-    updateCarousel();
-  });
-  previousButton.addEventListener("click", () =>{
-    currentSlide--;
-    if (currentSlide < 0) {
-      currentSlide = carouselSlides.length - 1;
     }
-    updateCarousel();
+  }, {passive: true});
+
+// Mouse Drag Support
+carouselWindow.addEventListener("mousedown", (e) => {
+  startX = e.clientX;
+  isDragging = true;
+  e.preventDefault();
+});
+
+carouselWindow.addEventListener("mouseup", (e) => {
+  if (!isDragging) return;
+  isDragging = false;
+
+  const endX = e.clientX;
+  const diffX = startX - endX;
+  const threshold = 60;
+
+  if (Math.abs(diffX) > threshold) {
+    if (diffX > 0) {
+      goToSlide(currentSlide + 1);
+    } else {
+      goToSlide(currentSlide - 1);
+    }
+    }
   });
+//Prevent Text Selection While Dragging
+carouselWindow.addEventListener("dragstart", (e) => e.preventDefault());
 </script>
 <!-- PAGES SCRIPT -->
 <script>
