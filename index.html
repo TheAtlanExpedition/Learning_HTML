@@ -614,7 +614,7 @@ carouselWindow.addEventListener("touchend", (e) => {
 
   const endX = e.changedTouches[0].clientX;
   const diffX = startX - endX;
-  const threshold = 60;
+  const threshold = 100;
 
   if (Math.abs(diffX) > threshold) {
     if (diffX > 0) {
@@ -640,7 +640,7 @@ carouselWindow.addEventListener("mouseup", (e) => {
 
   const endX = e.clientX;
   const diffX = startX - endX;
-  const threshold = 60;
+  const threshold = 100;
 
   if (Math.abs(diffX) > threshold) {
     if (diffX > 0) {
